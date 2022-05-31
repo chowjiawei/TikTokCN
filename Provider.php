@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialiteProviders\TikTok;
+namespace SocialiteProviders\TikTokCN;
 
 use Illuminate\Support\Arr;
 use Laravel\Socialite\Two\InvalidStateException;
@@ -12,7 +12,7 @@ class Provider extends AbstractProvider
     /**
      * Unique Provider Identifier.
      */
-    public const IDENTIFIER = 'TIKTOK';
+    public const IDENTIFIER = 'TIKTOKCN';
 
     /**
      * {@inheritdoc}
@@ -31,13 +31,13 @@ class Provider extends AbstractProvider
      */
     protected function getAuthUrl($state)
     {
-        return 'https://open-api.tiktok.com/platform/oauth/connect?'.http_build_query([
-            'client_key'    => $this->clientId,
-            'state'         => $state,
-            'response_type' => 'code',
-            'scope'         => $this->formatScopes($this->getScopes(), $this->scopeSeparator),
-            'redirect_uri'  => $this->redirectUrl,
-        ]);
+        return 'https://open.douyin.com/platform/oauth/connect?'.http_build_query([
+                'client_key'    => $this->clientId,
+                'state'         => $state,
+                'response_type' => 'code',
+                'scope'         => $this->formatScopes($this->getScopes(), $this->scopeSeparator),
+                'redirect_uri'  => $this->redirectUrl,
+            ]);
     }
 
     /**
@@ -75,7 +75,7 @@ class Provider extends AbstractProvider
      */
     public function getTokenUrl()
     {
-        return 'https://open-api.tiktok.com/oauth/access_token/';
+        return 'https://open.douyin.com/oauth/access_token/';
     }
 
     /**
@@ -105,7 +105,7 @@ class Provider extends AbstractProvider
         // $data['access_token'] = $token, $data['open_id'] = $open_id
 
         $response = $this->getHttpClient()->get(
-            'https://open-api.tiktok.com/oauth/userinfo?'.http_build_query($data)
+            'https://open.douyin.com/oauth/userinfo?'.http_build_query($data)
         );
 
         return json_decode((string) $response->getBody(), true);

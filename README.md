@@ -1,7 +1,7 @@
 # TikTok
 
 ```bash
-composer require socialiteproviders/tiktok
+composer require socialiteproviders/tiktok-cn
 ```
 
 ## Installation & Basic Usage
@@ -11,10 +11,10 @@ Please see the [Base Installation Guide](https://socialiteproviders.com/usage/),
 ### Add configuration to `config/services.php`
 
 ```php
-'tiktok' => [
-  'client_id' => env('TIKTOK_CLIENT_ID'),
-  'client_secret' => env('TIKTOK_CLIENT_SECRET'),
-  'redirect' => env('TIKTOK_REDIRECT_URI')
+'tiktok-cn' => [
+  'client_id' => env('TIKTOK_CN_CLIENT_ID'),
+  'client_secret' => env('TIKTOK_CN_CLIENT_SECRET'),
+  'redirect' => env('TIKTOK_CN_REDIRECT_URI')
 ],
 ```
 
@@ -28,7 +28,7 @@ Add the event to your `listen[]` array in `app/Providers/EventServiceProvider`. 
 protected $listen = [
     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
         // ... other providers
-        \SocialiteProviders\TikTok\TikTokExtendSocialite::class.'@handle',
+        \SocialiteProviders\TikTokCN\TikTokCNExtendSocialite::class.'@handle',
     ],
 ];
 ```
@@ -38,7 +38,7 @@ protected $listen = [
 You should now be able to use the provider like you would regularly use Socialite (assuming you have the facade installed):
 
 ```php
-return Socialite::driver('tiktok')->redirect();
+return Socialite::driver('tiktok-cn')->redirect();
 ```
 
 # Returned User Fields

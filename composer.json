@@ -1,18 +1,19 @@
 {
-    "name": "socialiteproviders/tiktok",
-    "description": "TikTok (tiktok.com) OAuth2 Provider for Laravel Socialite",
+    "name": "socialiteproviders/tiktok-cn",
+    "description": "China TikTok OAuth2 Provider for Laravel Socialite",
     "keywords": [
         "laravel",
         "oauth",
         "provider",
         "socialite",
-        "tiktok"
+        "tiktok",
+        "China"
     ],
     "license": "MIT",
     "authors": [
         {
-            "name": "Thomas Banks",
-            "email": "thomas@tombanks.me"
+            "name": "chowjiawei",
+            "email": "1084186870@qq.com"
         }
     ],
     "require": {
@@ -21,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SocialiteProviders\\TikTok\\": ""
+            "SocialiteProviders\\TikTokCN\\": ""
         }
     },
     "support": {
         "issues": "https://github.com/socialiteproviders/providers/issues",
         "source": "https://github.com/socialiteproviders/providers",
-        "docs": "https://socialiteproviders.com/tiktok"
+        "docs": "https://socialiteproviders.com/tiktok-cn"
     }
 }
